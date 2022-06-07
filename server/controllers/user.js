@@ -62,7 +62,8 @@ export const signup = async (req, res) => {
                     userName: req.body.userName,
                     password: req.body.password,
                     phoneNumber: req.body.phoneNumber,
-                    role: req.body.role
+                    role: req.body.role,
+                    adress:req.body.adress
                 })
                 const salt = await bcrypt.genSalt(10);
                 newUser.password = await bcrypt.hash(newUser.password, salt);
