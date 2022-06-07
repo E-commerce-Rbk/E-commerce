@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
+
+body {
+  background-color: rgb(238, 231, 231);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PT Sans", sans-serif;
+}
+
+img {
+  height: 600px;
+  width: 600px;
+}
+/* .caroursel .overlay {
+  width: 80%;
+  position: absolute;
+  top: 50;
+  transform: translateY(-50);
+  left: 10%;
+  padding: 0.4rem 1.5rem;
+  text-align: left;
+  background-color: rgba(red, green, blue, alpha);
+} */
+
+.App {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.check-our {
+  text-align: center;
+}
