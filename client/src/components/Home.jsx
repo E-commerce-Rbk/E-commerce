@@ -1,22 +1,14 @@
-import React from 'react'
-import {Nav} from 'react-bootstrap'
+import React from "react";
+import Slider from "./Slider/Slider.jsx";
+import "./Slider/Slider.css";
 
-function Home({data,update}) {
+const Home = () => {
   return (
-    <Nav variant="tabs" defaultActiveKey="/home">
-    <Nav.Item>
-      <Nav.Link href="/home">Active</Nav.Link>
-    </Nav.Item>
-    <Nav.Item>
-      <Nav.Link eventKey="link-1">Option 2</Nav.Link>
-    </Nav.Item>
-    <Nav.Item>
-      <Nav.Link eventKey="disabled" disabled>
-        Disabled
-      </Nav.Link>
-    </Nav.Item>
-  </Nav>
-  )
-}
+    <div className="container">
+      <h1 className="check-our">This is Home Page</h1>
+      <Slider />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
