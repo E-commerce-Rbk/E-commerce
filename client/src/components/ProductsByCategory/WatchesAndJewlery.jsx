@@ -4,5 +4,5 @@ const WatchesAndJewlery = () => {
   return (
     <div>This Where the Watches and jewlery products should be rendered</div>
   );
-}
-export default WatchesAndJewlery
+};
+export default WatchesAndJewlery;
