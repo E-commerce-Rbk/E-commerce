@@ -1,14 +1,15 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import "./Slider.css";
+// import "./Slider.css";
 import data from "./Sliders";
 
 const Slider = () => {
   return (
     <Carousel
+      style={{ marginLeft: "20%" }}
       autoPlay
-    //   interval={4000}
+      //   interval={4000}
       infiniteLoop
       showIndicators={false}
       showThumbs={false}

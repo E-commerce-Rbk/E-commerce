@@ -2,20 +2,29 @@ import React from "react";
 import Beauty from "./Beauty.jsx";
 import Electronics from "./Electronics.jsx";
 import HomeAndGarden from "./HomeAndGarden.jsx";
-import JewleryAndWatches from "./jewleryAndWatches.jsx";
-import "./ProductsNavigator.css"
+import JewleryAndWatches from "./JewleryWatches.jsx";
+import "./ProductsNavigator.css";
 
 const ProductsNavigator = () => {
   return (
-    <div>
-      <h1> This component containes sliders for each product</h1>
-      <div className="category-list-container">
+    <>
+      <div></div>
+      <div className="wrapper">
         <Beauty />
+        <br />
+        <br />
         <Electronics></Electronics>
+        <br />
+        <br />
+
         <HomeAndGarden></HomeAndGarden>
+        <br />
+        <br />
         <JewleryAndWatches></JewleryAndWatches>
+        <br />
+        <br />
       </div>
-    </div>
+    </>
   );
 };
 

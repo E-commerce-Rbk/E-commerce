@@ -2,3 +2,12 @@
   margin-left: 100px;
   margin-right: 100px;
 } */
+
+.image-slide {
+  height: 500px;
+  width: 500px;
+}
+.carousel{
+  width: 100%;
+}
+
