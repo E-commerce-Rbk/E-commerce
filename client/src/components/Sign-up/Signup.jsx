@@ -67,6 +67,9 @@ class Signup extends React.Component {
 
   );
 }
+
 }
 
 export default Signup;
+
+
