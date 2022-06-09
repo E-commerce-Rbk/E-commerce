@@ -1,13 +1,18 @@
 import React from "react";
 import Slider from "./Slider/Slider.jsx";
 import "./Slider/Slider.css";
+import CollectionHomePage from "./CollectionHomePage/CategoryPreview.jsx";
+import Footer from "./footer/footer.jsx";
 
 const Home = () => {
   return (
-    <div className="container" style={{ "margin-Left": "10%" }}>
-      <h1 className="check-our">This is Home Page</h1>
-      <Slider />
-    </div>
+    <>
+      <div className="slider-container">
+        <Slider />
+      </div>
+      <CollectionHomePage></CollectionHomePage>
+      <Footer></Footer>
+    </>
   );
 };
 
