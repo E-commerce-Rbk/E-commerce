@@ -1,9 +1,9 @@
 import React from "react";
-
+import User from "../User/User";
 const About = () => {
   return (
     <div>
-      <h1>This is the about-us Component</h1>
+      <User />
     </div>
   );
 };
