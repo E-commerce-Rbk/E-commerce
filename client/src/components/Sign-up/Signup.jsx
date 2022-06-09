@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../Nav-Bar/Header.jsx";
 import {Form}  from "react-bootstrap"
-
+import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import "./Signup.css"
 
 class Signup extends React.Component { 
@@ -31,6 +31,7 @@ class Signup extends React.Component {
       <label>
         <span>Password</span>
         <Form.Control type="password" name="password" onChange={(e)=>{this.setState({password:e.target.value})}}/>
+        <PasswordStrengthMeter password={this.state.password} />
       </label>
       <label>
         <span>Location</span>
@@ -40,7 +41,7 @@ class Signup extends React.Component {
         <span>Phone Number</span>
         <input type="number" name="PhoneNumber" onChange={(e)=>{this.setState({phoneNumber:e.target.value})}}/>
       </label>
-      <button class="submit" type="button">Sign Up</button>
+      <button className="BUTTON" type="button">Sign Up</button>
       
     </div>
 
@@ -49,13 +50,8 @@ class Signup extends React.Component {
         <div class="img-text m-up">
           <h2>You already have an account?</h2>
         </div>
-        <div class="img-text m-in">
-          <h2>One of us?</h2>
-          <p>If you already has an account, just sign in. We've missed you!</p>
-        </div>
         <div class="img-btn">
           <span class="m-up">Sign In</span>
-          <span class="m-in">Sign In</span>
         </div>
       </div>
       </div> 
@@ -67,9 +63,6 @@ class Signup extends React.Component {
 
   );
 }
-
 }
 
 export default Signup;
-
-
