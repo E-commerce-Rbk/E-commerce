@@ -1,13 +1,22 @@
-/* .image-slider {
-  margin-left: 100px;
-  margin-right: 100px;
-} */
-
-.image-slide {
-  height: 500px;
-  width: 500px;
+.fade-anim img {
+  animation: fadeAnim 0.5s ease-out;
 }
-.carousel{
+@keyframes fadeAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slider-container {
+
+}
+.image-slider {
   width: 100%;
+  height: 27rem;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
