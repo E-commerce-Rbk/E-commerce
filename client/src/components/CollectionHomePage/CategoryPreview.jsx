@@ -11,7 +11,7 @@ const CollectionHomePage = () => {
             <div class="group relative">
               <div class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                 <img
-                  src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
+                  src="https://sbsinformatique.com/7758-large_default/ecran-redragon-sapphire-24-1-ms-ips-144-hz.jpg"
                   alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
                   class="w-full h-full object-center object-cover"
                 ></img>

@@ -1,4 +1,5 @@
 import React from "react";
+import AdminSidebar from "../AdminSideBar/AdminSideBar.jsx"
 // import { Fragment, useState } from "react";
 // import { Listbox, Transition } from "@headlessui/react";
 // import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
@@ -6,7 +7,8 @@ import React from "react";
 
 function AddProduct() {
   return (
-    <div>
+    <div className="admin-container">
+      <AdminSidebar></AdminSidebar>
       {" "}
       <div>
         <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -201,6 +203,7 @@ function AddProduct() {
                   <button
                     type="submit"
                     class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              
                   >
                     Save
                   </button>

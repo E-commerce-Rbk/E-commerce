@@ -9,7 +9,7 @@ const ProductsNavigator = () => {
   return (
     <>
       <div></div>
-      <div className="wrapper">
+      <div >
         <Beauty />
         <br />
         <br />

@@ -1,9 +1,9 @@
-import {
-    LocationSearching,
-    MailOutline,
-    PermIdentity,
-    PhoneAndroid,
-  } from "@material-ui/icons";
+// import {
+//     LocationSearching,
+//     MailOutline,
+//     PermIdentity,
+//     PhoneAndroid,
+//   } from "@material-ui/icons";
   import "./user.css";
   
   export default function User() {
@@ -18,21 +18,21 @@ import {
             <div className="userShowBottom">
               <span className="userShowTitle">Account Details</span>
               <div className="userShowInfo">
-                <PermIdentity className="userShowIcon" />
+                {/* <PermIdentity className="userShowIcon" /> */}
                 <span className="userShowInfoTitle">UserName</span>
               </div>
               <div className="userShowInfo"></div>
               <span className="userShowTitle">Contact Details</span>
               <div className="userShowInfo">
-                <PhoneAndroid className="userShowIcon" />
+                {/* <PhoneAndroid className="userShowIcon" /> */}
                 <span className="userShowInfoTitle">22222222</span>
               </div>
               <div className="userShowInfo">
-                <MailOutline className="userShowIcon" />
+                {/* <MailOutline className="userShowIcon" /> */}
                 <span className="userShowInfoTitle">mehdiEnnebli@gmail.com</span>
               </div>
               <div className="userShowInfo">
-                <LocationSearching className="userShowIcon" />
+                {/* <LocationSearching className="userShowIcon" /> */}
                 <span className="userShowInfoTitle">Tunis | hammem lif</span>
               </div>
             </div>

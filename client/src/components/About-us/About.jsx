@@ -1,9 +1,12 @@
 import React from "react";
 import User from "../User/User";
+import Admin from "../Admin/AddProduct";
+import Sidebar from "../SideBar/Sidebar.jsx";
+
 const About = () => {
   return (
-    <div>
-      <User />
+    <div className="wrapper">
+      <Sidebar></Sidebar>
     </div>
   );
 };

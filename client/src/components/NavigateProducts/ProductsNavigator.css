@@ -2,11 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-.wrapper {
-  margin-top: 4rem;
+.beauty-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: left;
+}
+/* .products-container {
+  margin-top: -4rem;
+  width: 400rem;
+  margin-left: -8rem;
+} */
+.wrapper {
+  /* margin-top: -100px; */
+  box-sizing: border-box;
+  border: 2px #121212 solid;
+  background-color: #161313;
+  width: 12rem;
+  height: 120rem;
+}
+.third-verticale {
+  
+
+  /* display: flex; */
+  /* justify-content:flex-start; */
+  
+  /* flex-direction: column; */
+  width: auto;
+  height: auto;
+  border: #f36060 2px solid;
 }
 
 .categ-title {
@@ -31,4 +54,9 @@
 }
 
 .btn {
+}
+
+.aa {
+  margin-top: 100px;
+  margin-left: 200px;
 }
