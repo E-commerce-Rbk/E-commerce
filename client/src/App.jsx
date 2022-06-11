@@ -17,6 +17,8 @@ import User from "./components/User/User.jsx";
 import ShoppingCart from "./components/Cartshop/ShoppingCart.jsx";
 import AdminView from "./components/Admin/AdminView.jsx";
 import AddProduct from "./components/Admin/AddProduct.jsx";
+import OneProduct from "./components/OneProduct/OneProduct";
+import SeeOrders from "./components/Admin/SeeOrders.jsx";
 const App = () => {
   const [data, setData] = useState([]);
   const [update, setUpdate] = useState(false);
@@ -48,6 +50,11 @@ const App = () => {
         <Route path="/userSettings" element={<User></User>} />
         <Route path="/cartshop" element={<ShoppingCart></ShoppingCart>} />
         <Route path="/admin/add" element={<AddProduct></AddProduct>} />
+        <Route
+          path="/products/productdetail"
+          element={<OneProduct></OneProduct>}
+        />
+        <Route path="admin/orders" element={<SeeOrders></SeeOrders>} />
       </Routes>
     </BrowserRouter>
   );

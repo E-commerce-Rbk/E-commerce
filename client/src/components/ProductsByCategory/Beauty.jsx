@@ -3,7 +3,9 @@ import OneProduct from "./OneProduct/OneProduct.jsx";
 import "../NavigateProducts/ProductsNavigator.css";
 import Sidebar from "../SideBar/Sidebar.jsx";
 import { getProducts } from "../../api/index.js";
+
 const Beauty = () => {
+  
   const [data, setData] = useState([]);
   useEffect(() => {
     getProducts().then((res) =>

@@ -1,8 +1,9 @@
 import React from "react";
-import { Card, ListGroup, ListGroupItem, Button } from "react-bootstrap";
-// import "bootstrap/dist/css/bootstrap.min.css";
-import { CartPlus, CartDash } from "react-bootstrap-icons";
+
+import { useNavigate } from "react-router-dom";
+
 function OneProduct({ prod }) {
+  let navigate = useNavigate();
   return (
     <div class="group relative">
       <div class="relative w-full h-80 bg-grey rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
@@ -14,10 +15,8 @@ function OneProduct({ prod }) {
         ></img>
       </div>
       <h3 class="mt-6 text-sm text-gray-500">
-        <a href="#">
-          <span class="absolute inset-0"></span>
-          {prod.productName}
-        </a>
+        <span class="absolute inset-0"></span>
+        {prod.productName}
       </h3>
 
       <br></br>
@@ -39,12 +38,11 @@ function OneProduct({ prod }) {
             />
           </svg>
           <br></br>
-          <button className="btn" >
-           Buy
-          </button>
         </div>
+
         {/* <button className="">More details</button> */}
       </div>
+
       <br></br>
     </div>
   );
