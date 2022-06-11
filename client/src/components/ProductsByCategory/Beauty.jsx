@@ -3,7 +3,10 @@ import OneProduct from "./OneProduct/OneProduct.jsx";
 import "../NavigateProducts/ProductsNavigator.css";
 import Sidebar from "../SideBar/Sidebar.jsx";
 import { getProducts } from "../../api/index.js";
-const Beauty = () => {
+import { useNavigate } from "react-router-dom";
+
+const Beauty = ({GetProdDetails}) => {
+  let navigate= useNavigate()
   const [data, setData] = useState([]);
   useEffect(() => {
     getProducts().then((res) =>
@@ -32,10 +35,21 @@ const Beauty = () => {
             >
               <div class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
                 {console.log(data)}
-                {data.map((e, i) => {
-                  return <OneProduct prod={e} key={i} />;
-                })}
+                {data.map((element, i) => {
+                  return(
+                    <>
+                    <OneProduct prod={element}  GetProdDetails={GetProdDetails} key={i} />
+                    <button className="btn" onClick={(e)=>{
+                      GetProdDetails(element._id)
+                       navigate("/productDetails")}} >Buy</button>
+                    </>
+                    
+                  ) 
+                })
+                
+                }
               </div>
+              
             </div>
           </div>
         </div>
