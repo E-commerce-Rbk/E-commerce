@@ -3,10 +3,12 @@ import OneProduct from "./OneProduct/OneProduct.jsx";
 import "../NavigateProducts/ProductsNavigator.css";
 import Sidebar from "../SideBar/Sidebar.jsx";
 import { getProducts } from "../../api/index.js";
+
 import { useNavigate } from "react-router-dom";
 
 const Beauty = ({GetProdDetails}) => {
   let navigate= useNavigate()
+
   const [data, setData] = useState([]);
   useEffect(() => {
     getProducts().then((res) =>

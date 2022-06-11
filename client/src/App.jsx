@@ -17,8 +17,10 @@ import User from "./components/User/User.jsx";
 import ShoppingCart from "./components/Cartshop/ShoppingCart.jsx";
 import AdminView from "./components/Admin/AdminView.jsx";
 import AddProduct from "./components/Admin/AddProduct.jsx";
+import SeeOrders from "./components/Admin/SeeOrders.jsx";
 import ProductDetails from "./components/productDetails/ProductDetails.jsx";
 import { useNavigate } from "react-router-dom";
+
 const App = () => {
   const [data, setData] = useState([]);
   const [update, setUpdate] = useState(false);
@@ -59,6 +61,8 @@ const App = () => {
         <Route path="/userSettings" element={<User></User>} />
         <Route path="/cartshop" element={<ShoppingCart></ShoppingCart>} />
         <Route path="/admin/add" element={<AddProduct></AddProduct>} />
+
+        <Route path="admin/orders" element={<SeeOrders></SeeOrders>} />
         <Route path="/productDetails" element={<ProductDetails prodDetails={prodDetails}></ProductDetails>}  />
       </Routes>
     </BrowserRouter>

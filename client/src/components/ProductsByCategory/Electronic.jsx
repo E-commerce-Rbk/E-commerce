@@ -31,7 +31,21 @@ const Electronic = () => {
               <div class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
                 {console.log(data)}
                 {data.map((e, i) => {
-                  return <OneProduct prod={e} key={i} />;
+                  return (
+                    <div>
+                      <OneProduct prod={e} key={i} />
+                      <button
+                        className="btn"
+                        onClick={() => {
+                          console.log(e);
+                        }}
+                      >
+                        {" "}
+                        hello
+                      </button>
+                      <br></br>
+                    </div>
+                  );
                 })}
               </div>
             </div>
