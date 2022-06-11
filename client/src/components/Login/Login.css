@@ -6,7 +6,7 @@
 }
 
 body{
-  background-color: #badedd;
+  background-color: #ffffff;
 }
 Form.Control{ background: rgba(63, 240, 184, 0.15);
   box-shadow: 0 8px 32px 0 rgba(79, 212, 210, 0.37);
@@ -16,7 +16,7 @@ Form.Control{ background: rgba(63, 240, 184, 0.15);
   padding: 1rem;
   border: none;
   outline: none;
-  color: #84e1c8;
+  color: #f8fffd;
   font-size: 1rem;
   font-weight: bold;}
   focus {

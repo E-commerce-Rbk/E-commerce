@@ -1,6 +1,6 @@
 import React from "react";
 import "./OneProduct.scss"
-const OneProduct = () => {
+const OneProduct = (props) => {
 
 
   

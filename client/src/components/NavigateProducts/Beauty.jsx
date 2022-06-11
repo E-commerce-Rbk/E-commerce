@@ -25,7 +25,7 @@ const Beauty = () => {
                 <div class="sm:text-center lg:text-left">
                   <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                     <span class="block xl:inline">
-                      Checkour newest collection of{" "}
+                      Check our newest collection of{" "}
                     </span>
                     <span class="block text-pink-600 xl:inline">
                       Watches and jewlery

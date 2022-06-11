@@ -23,5 +23,11 @@ const navItems = [
     path: "./aboutus",
     cName: "nav-item",
   },
+  {
+    id: 5,
+    title: "Admin",
+    path: "./adminview",
+    cName: "nav-item",
+  },
 ];
 export default navItems;

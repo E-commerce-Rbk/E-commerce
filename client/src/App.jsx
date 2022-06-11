@@ -13,9 +13,15 @@ import Beauty from "./components/ProductsByCategory/Beauty.jsx";
 import WatchesAndJewlery from "./components/ProductsByCategory/WatchesAndJewlery";
 import Electronic from "./components/ProductsByCategory/Electronic.jsx";
 import HomeAndGarden from "./components/ProductsByCategory/GardenProduct";
+import User from "./components/User/User.jsx";
+import ShoppingCart from "./components/Cartshop/ShoppingCart.jsx";
+import AdminView from "./components/Admin/AdminView.jsx";
+import AddProduct from "./components/Admin/AddProduct.jsx";
 const App = () => {
   const [data, setData] = useState([]);
   const [update, setUpdate] = useState(false);
+  const [adminState, setAdminState] = useState(true);
+  const [userState, setUserState] = useState(false);
   useEffect(() => {
     getProducts().then((res) => setData(res.data));
   }, [update]);
@@ -24,7 +30,7 @@ const App = () => {
   };
   return (
     <BrowserRouter>
-      <Header></Header>
+      <Header adminState={adminState} userState={userState}></Header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -32,9 +38,16 @@ const App = () => {
         <Route path="/aboutus" element={<About />} />
         <Route path="/products" element={<ProductsNavigator />} />
         <Route path="/products/beauty" element={<Beauty />} />
-        <Route path="/products/watchesAndJewlery" element={<WatchesAndJewlery />} />
+        <Route path="/adminview" element={<AdminView></AdminView>} />
+        <Route
+          path="/products/watchesAndJewlery"
+          element={<WatchesAndJewlery />}
+        />
         <Route path="/products/electronic" element={<Electronic />} />
         <Route path="/products/homeAndGarden" element={<HomeAndGarden />} />
+        <Route path="/userSettings" element={<User></User>} />
+        <Route path="/cartshop" element={<ShoppingCart></ShoppingCart>} />
+        <Route path="/admin/add" element={<AddProduct></AddProduct>} />
       </Routes>
     </BrowserRouter>
   );

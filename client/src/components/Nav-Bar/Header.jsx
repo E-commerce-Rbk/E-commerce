@@ -4,9 +4,15 @@ import "./navbar.css";
 import * as Icons from "react-icons/fa";
 import navItems from "./Nav-items";
 import Button from "./Button";
+import { useState } from "react";
 
-const Header = () => {
+const Header = (props) => {
   
+
+
+
+
+
   return (
     <div>
       <nav className="navbar">
@@ -17,13 +23,23 @@ const Header = () => {
         <ul className="nav-items">
           {/* All the items in the navbar are imported from a file nav-items.js this file contain an 
         item with the path to link to a class name and a title for example " Login" we can map inside a ul and return an <li> passing a single item from that file */}
-          {navItems.map((item) => {
-            return (
-              <li key={item.id} className={item.cName}>
-                <Link to={item.path}>{item.title}</Link>
-              </li>
-            );
-          })}
+          <li key="1" className="nav-item">
+            <Link to="./">Home</Link>
+          </li>
+          <li key="2" className="nav-item">
+            <Link to="./aboutus">About-us</Link>
+          </li>
+          <li key="3" className="nav-item">
+            <Link to="./products">Shop</Link>
+          </li>
+          {props.adminState && (
+            <li key="4" className="nav-item">
+              <Link to="./adminview">Admin</Link>
+            </li>
+          )}
+          <li key="5" className="nav-item">
+            <Link to="./login">Login</Link>
+          </li>
         </ul>
         <Button></Button>
       </nav>
@@ -32,3 +48,10 @@ const Header = () => {
 };
 
 export default Header;
+
+// {navItems.map((item) => {
+//   return (
+//     <li key={item.id} className={item.cName}>
+//       <Link to={item.path}>{item.title}</Link>
+//     </li>
+//   );
