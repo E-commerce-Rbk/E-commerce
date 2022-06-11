@@ -17,18 +17,29 @@ import User from "./components/User/User.jsx";
 import ShoppingCart from "./components/Cartshop/ShoppingCart.jsx";
 import AdminView from "./components/Admin/AdminView.jsx";
 import AddProduct from "./components/Admin/AddProduct.jsx";
-import OneProduct from "./components/OneProduct/OneProduct";
 import SeeOrders from "./components/Admin/SeeOrders.jsx";
+import ProductDetails from "./components/productDetails/ProductDetails.jsx";
+import { useNavigate } from "react-router-dom";
+
 const App = () => {
   const [data, setData] = useState([]);
   const [update, setUpdate] = useState(false);
   const [adminState, setAdminState] = useState(true);
   const [userState, setUserState] = useState(false);
+  const [prodDetails, setProdDetails] = useState({});
+
   useEffect(() => {
     getProducts().then((res) => setData(res.data));
   }, [update]);
   const upDate = () => {
     setUpdate(!update);
+  };
+  // const navigate= useNavigate()
+  const FuncprodDetails = (target) => {
+    let filterd = data.filter((e, i) => {
+      return  e._id === target;
+    });
+    setProdDetails(filterd);
   };
   return (
     <BrowserRouter>
@@ -39,7 +50,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/aboutus" element={<About />} />
         <Route path="/products" element={<ProductsNavigator />} />
-        <Route path="/products/beauty" element={<Beauty />} />
+        <Route path="/products/beauty" element={<Beauty GetProdDetails={FuncprodDetails}/>} />
         <Route path="/adminview" element={<AdminView></AdminView>} />
         <Route
           path="/products/watchesAndJewlery"
@@ -50,11 +61,9 @@ const App = () => {
         <Route path="/userSettings" element={<User></User>} />
         <Route path="/cartshop" element={<ShoppingCart></ShoppingCart>} />
         <Route path="/admin/add" element={<AddProduct></AddProduct>} />
-        <Route
-          path="/products/productdetail"
-          element={<OneProduct></OneProduct>}
-        />
+
         <Route path="admin/orders" element={<SeeOrders></SeeOrders>} />
+        <Route path="/productDetails" element={<ProductDetails prodDetails={prodDetails}></ProductDetails>}  />
       </Routes>
     </BrowserRouter>
   );
