@@ -19,70 +19,107 @@ import AdminView from "./components/Admin/AdminView.jsx";
 import AddProduct from "./components/Admin/AddProduct.jsx";
 import SeeOrders from "./components/Admin/SeeOrders.jsx";
 import ProductDetails from "./components/productDetails/ProductDetails.jsx";
+import UpdateProduact from "./components/Admin/UpdateProduct.jsx";
+
 import { useNavigate } from "react-router-dom";
-import {login} from "./api/index.js"
+import { login } from "./api/index.js";
 const App = () => {
   const [data, setData] = useState([]);
   const [update, setUpdate] = useState(false);
   const [user, setUser] = useState({});
   const [prodDetails, setProdDetails] = useState({});
-  const [cart,setCart]=useState({})
+  const [cart, setCart] = useState({});
+  const [upProduct, setUpProduct] = useState({});
 
   useEffect(() => {
     getProducts().then((res) => setData(res.data));
-    let check=JSON.parse(localStorage.getItem("loged"))
-    if(check){
-      login({token:check.token}).then((res)=>{
+    let check = JSON.parse(localStorage.getItem("loged"));
+    if (check) {
+      login({ token: check.token }).then((res) => {
         console.log(res);
-        if(res.data){
-          setUser(res.data)
-          setCart({userId:res.data.id,products:[]})
+        if (res.data) {
+          setUser(res.data);
+          setCart({ userId: res.data.id, products: [] });
         }
-      })
+      });
     }
   }, [update]);
   const upDate = () => {
     setUpdate(!update);
   };
-  const logout=()=>{
-    localStorage.clear()
-    setUser({})    
-  }
-  const addToCart=(obj)=>{
-    setCart({userId:cart.userId,products:[...cart.products, obj]})
-  }
+  const logout = () => {
+    localStorage.clear();
+    setUser({});
+  };
+  const addToCart = (obj) => {
+    setCart({ userId: cart.userId, products: [...cart.products, obj] });
+  };
   // const navigate= useNavigate()
   const FuncprodDetails = (target) => {
     let filterd = data.filter((e, i) => {
-      return  e._id === target;
+      return e._id === target;
     });
     setProdDetails(filterd);
   };
+  const up = (p) => {
+    setUpProduct(p);
+  };
   return (
     <BrowserRouter>
-    {console.log(cart)}
+      {console.log(cart)}
       <Header user={user} logout={logout}></Header>
       <Routes>
+        <Route
+          path="/updateProduct"
+          element={<UpdateProduact update={upDate} item={upProduct} />}
+        />
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login upDate={upDate}/>} />
-        <Route path="/signup" element={<Signup upDate={upDate}/>} />
+        <Route path="/login" element={<Login upDate={upDate} />} />
+        <Route path="/signup" element={<Signup upDate={upDate} />} />
         <Route path="/aboutus" element={<About />} />
         <Route path="/products" element={<ProductsNavigator />} />
-        <Route path="/products/beauty" element={<Beauty GetProdDetails={FuncprodDetails}/>} />
-        <Route path="/adminview" element={<AdminView ></AdminView>} />
+        <Route
+          path="/products/beauty"
+          element={<Beauty GetProdDetails={FuncprodDetails} />}
+        />
+        <Route
+          path="/adminview"
+          element={<AdminView update={upDate} products={data} func={up} />}
+        />
         <Route
           path="/products/watchesAndJewlery"
-          element={<WatchesAndJewlery  GetProdDetails={FuncprodDetails}/>}
+          element={<WatchesAndJewlery GetProdDetails={FuncprodDetails} />}
         />
-        <Route path="/products/electronic" element={<Electronic GetProdDetails={FuncprodDetails} />} />
-        <Route path="/products/homeAndGarden" element={<HomeAndGarden GetProdDetails={FuncprodDetails} />} />
-        <Route path="/products/WatchesAndJewlery" element={<WatchesAndJewlery GetProdDetails={FuncprodDetails} />} />
+        <Route
+          path="/products/electronic"
+          element={<Electronic GetProdDetails={FuncprodDetails} />}
+        />
+        <Route
+          path="/products/homeAndGarden"
+          element={<HomeAndGarden GetProdDetails={FuncprodDetails} />}
+        />
+        <Route
+          path="/products/WatchesAndJewlery"
+          element={<WatchesAndJewlery GetProdDetails={FuncprodDetails} />}
+        />
         <Route path="/userSettings" element={<User></User>} />
-        <Route path="/cartshop" element={<ShoppingCart cart={cart} user={user}></ShoppingCart>} />
-        <Route path="/admin/add" element={<AddProduct ></AddProduct>} />
+        <Route
+          path="/cartshop"
+          element={<ShoppingCart cart={cart} user={user}></ShoppingCart>}
+        />
+        <Route path="/admin/add" element={<AddProduct></AddProduct>} />
 
-        <Route path="admin/orders" element={<SeeOrders ></SeeOrders>} />
-        <Route path="/productDetails" element={<ProductDetails prodDetails={prodDetails} addToCart={addToCart} cart={cart}></ProductDetails>}  />
+        <Route path="admin/orders" element={<SeeOrders></SeeOrders>} />
+        <Route
+          path="/productDetails"
+          element={
+            <ProductDetails
+              prodDetails={prodDetails}
+              addToCart={addToCart}
+              cart={cart}
+            ></ProductDetails>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
