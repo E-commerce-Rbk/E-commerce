@@ -8,8 +8,5 @@ export const getProducts=()=>axios.get(product);
 export const signup=(newUser)=>axios.post(`${user}/signup`,newUser)
 export const login=(userLog)=>axios.post(`${user}/login`,userLog)
 export const validateCart=(newcart)=>axios.post(cart,newcart)
-
-
-// export const createPost=(newPost)=>axios.post(url,newPost)
-// export const updatePost=(id,updatePost)=>axios.patch(`${url}/${id}`,updatePost)
-// export const deletePost=(id)=>axios.delete(`${url}/${id}`)
+export const updateUser=(id,userEdit)=>axios.patch(`${user}/${id}`,userEdit)
+export const getUser=(id)=>axios.get(`${user}/${id}`)

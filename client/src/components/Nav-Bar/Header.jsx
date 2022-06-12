@@ -7,12 +7,6 @@ import Button from "./Button";
 import { useState } from "react";
 
 const Header = (props) => {
-  
-
-
-
-
-
   return (
     <div>
       {console.log(props.logout)}
@@ -33,19 +27,30 @@ const Header = (props) => {
           <li key="3" className="nav-item">
             <Link to="./products">Shop</Link>
           </li>
-          {props.user.type==="admin" && (
+          {props.user.type === "admin" && (
             <li key="4" className="nav-item">
               <Link to="./adminview">Admin</Link>
             </li>
           )}
-          {!props.user.type &&<li key="5" className="nav-item">
-            <Link to="./login">Login</Link>
-          </li>}
-          {props.user.type &&<li key="5" className="nav-item">
-            <Link onClick={()=>props.logout()} to="./home">logout</Link>
-          </li>}
+          {props.user.type === "user" && (
+            <li key="4" className="nav-item">
+              <Link to="./user">Account</Link>
+            </li>
+          )}
+          {!props.user.type && (
+            <li key="5" className="nav-item">
+              <Link to="./login">Login</Link>
+            </li>
+          )}
+          {props.user.type && (
+            <li key="5" className="nav-item">
+              <Link onClick={() => props.logout()} to="./home">
+                logout
+              </Link>
+            </li>
+          )}
         </ul>
-        {!props.user.type &&<Button></Button>}
+        {!props.user.type && <Button></Button>}
       </nav>
     </div>
   );

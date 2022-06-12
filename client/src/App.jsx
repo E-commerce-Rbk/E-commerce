@@ -94,6 +94,7 @@ const App = () => {
           path="/products/electronic"
           element={<Electronic GetProdDetails={FuncprodDetails} />}
         />
+        <Route path="/user" element={<User conectedUser={user}></User>} />
         <Route
           path="/products/homeAndGarden"
           element={<HomeAndGarden GetProdDetails={FuncprodDetails} />}
