@@ -1,87 +1,37 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import "./updateProduct.css";
-import { Link } from "react-router-dom";
-function UpdateProduact({ item, update }) {
-  const [object, setObject] = useState({
-    productName: "",
-    price: null,
-    stock: null,
-    description: "",
-  });
-  const handleChange = (e) => {
-    e.persist();
-    setObject((prevUser) => ({
-      ...prevUser,
-      [e.target.name]: e.target.value,
-    }));
-  };
-  const updateData = () => {
-    axios
-      .put(`http://localhost:5000/product/${item._id}`, object)
-      .then(update());
-  };
+function UpdateProduact() {
   return (
     <div>
       <center>
         <div className="newProduct">
           <h1 className="addProductTitle">Update Product</h1>
-          <img
-            style={{ wiedth: "300px", height: "300px" }}
-            src={item.imageUrl}
-            alt=""
-          />
+          <img src="https://www.biensdeconso.com/wp-content/uploads/sites/6/2016/08/Fotolia_46519937_L-Copie-2-e1566939175410-300x200.jpg" alt="" />
           <form className="addProductForm">
+            
             <div className="addProductItem">
-              <label>Product Name</label>
-              <input
-                name="productName"
-                onChange={handleChange}
-                type="text"
-                placeholder="Apple Airpods"
-              />
+              <label>Title</label>
+              <input name="title" type="text" placeholder="Apple Airpods" />
             </div>
             <div className="addProductItem">
               <label>Description</label>
-              <input
-                name="description"
-                onChange={handleChange}
-                type="text"
-                placeholder="description..."
-              />
+              <input name="desc" type="text" placeholder="description..." />
             </div>
             <div className="addProductItem">
               <label>Price</label>
-              <input
-                name="price"
-                onChange={handleChange}
-                type="number"
-                placeholder="100"
-              />
+              <input name="price" type="number" placeholder="100" />
             </div>
-
+            <div className="addProductItem">
+              <label>Categories</label>
+              <input type="text" placeholder="jeans,skirts" />
+            </div>
             <div className="addProductItem">
               <label>Stock</label>
-              <input
-                type="text"
-                name="stock"
-                onChange={handleChange}
-                placeholder="........"
-              />
+              <input type="text" placeholder="........" />
             </div>
           </form>
         </div>
-        <Link to="/adminview">
-          <button
-            type="submit"
-            className="updateProductButton"
-            onClick={() => {
-              updateData();
-            }}
-          >
-            Update
-          </button>
-        </Link>
+        <button className="updateProductButton">Update</button>
       </center>
     </div>
   );
