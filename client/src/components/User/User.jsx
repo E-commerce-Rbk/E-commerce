@@ -1,4 +1,3 @@
-
 import "./user.css";
 import Sidebar from "../SideBar/Sidebar.jsx";
 import React, { useEffect, useState } from "react";
@@ -24,26 +23,21 @@ export default function User({ conectedUser }) {
   };
   return (
     <div className="beauty-container">
-     <div className="wrapper">
+      <div className="wrapper">
         <Sidebar></Sidebar>
       </div>
-      <div className="userTitleContainer">
-        
-      </div>
+      <div className="userTitleContainer"></div>
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop"></div>
           <div className="userShowBottom">
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
-
               <span className="userShowInfoTitle">{user.userName}</span>
-
             </div>
             <div className="userShowInfo"></div>
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
-
               <span className="userShowInfoTitle">{user.phoneNumber}</span>
             </div>
             <div className="userShowInfo">
@@ -61,12 +55,10 @@ export default function User({ conectedUser }) {
               <div className="userUpdateItem">
                 <label>Username</label>
                 <input
-
                   value={edit.userName}
                   onChange={(e) =>
                     setEdit({ ...edit, userName: e.target.value })
                   }
-
                   type="text"
                   placeholder="Username"
                   className="userUpdateInput"
@@ -80,7 +72,6 @@ export default function User({ conectedUser }) {
                   onChange={(e) =>
                     setEdit({ ...edit, phoneNumber: e.target.value })
                   }
-
                   type="text"
                   placeholder="Phone Number"
                   className="userUpdateInput"
@@ -89,7 +80,6 @@ export default function User({ conectedUser }) {
               <div className="userUpdateItem">
                 <label>Address</label>
                 <input
-
                   value={edit.adress}
                   onChange={(e) => setEdit({ ...edit, adress: e.target.value })}
                   type="text"
@@ -97,23 +87,22 @@ export default function User({ conectedUser }) {
                   className="userUpdateInput"
                 />
 
-                  <br></br>
+                <br></br>
                 <br></br>
               </div>
             </div>
             <div className="userUpdateRight">
               <div className="userUpdateUpload"></div>
               <button
-                   className="btn" style={{marginLeft:"40px"}}
+                className="btn"
+                style={{ marginLeft: "40px" }}
                 onClick={() => {
                   handleSubmit();
                 }}
-                className="userUpdateButton"
               >
                 Update
               </button>
             </div>
-
           </form>
         </div>
       </div>
