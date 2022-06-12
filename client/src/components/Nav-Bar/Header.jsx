@@ -32,6 +32,7 @@ const Header = (props) => {
               <Link to="./adminview">Admin</Link>
             </li>
           )}
+
           {props.user.type === "user" && (
             <li key="4" className="nav-item">
               <Link to="./user">Account</Link>

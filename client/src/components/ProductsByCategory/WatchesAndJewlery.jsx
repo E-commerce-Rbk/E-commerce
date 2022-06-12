@@ -3,7 +3,7 @@ import OneProduct from "./OneProduct/OneProduct.jsx";
 import { getProducts } from "../../api/index.js";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../SideBar/Sidebar.jsx";
-const WatchesAndJewlery = (GetProdDetails) => {
+const WatchesAndJewlery = ({GetProdDetails}) => {
   let navigate = useNavigate();
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -62,18 +62,18 @@ const WatchesAndJewlery = (GetProdDetails) => {
       </div>
       <div className="third-verticale">
         <img
-          src="https://www.designhill.com/design-blog/wp-content/uploads/2017/07/offer-deal.png"
+          src="https://ae01.alicdn.com/kf/HTB1Iv4JX3mH3KVjSZKzq6z2OXXaL/SINOBI-Car-Creative-Style-Men-Watch-Mens-Fashion-Speed-Racing-Sports-Chronograph-Watches-Quartz-Wristwatch-Relogio.jpg_Q90.jpg_.webp"
           style={{ width: "300px", height: "400px" }}
         ></img>
         <br></br>
         <img
-          src="https://i.pinimg.com/originals/47/cd/dd/47cddd0849f5845fbbf9026e22736b9a.jpg"
-          style={{ width: "300px", heigt: "800px" }}
+          src="https://i0.wp.com/www.menstylefashion.com/wp-content/uploads/2019/08/bracelet-for-men.jpg?fit=750%2C521&ssl=1"
+          style={{ width: "300px", height: "600px" }}
         ></img>
         <br></br>
         <img
-          src="https://djx5h8pabpett.cloudfront.net/wp-content/uploads/sites/4/2021/08/04095342/Victorias_Secret_Bombshell.jpg"
-          style={{ width: "300px", heigt: "800px" }}
+          src="https://cdn.grabon.in/gograbon/images/web-images/uploads/1573624197836/ethos-offers.jpg"
+          style={{ width: "300px", height: "300px" }}
         ></img>
       </div>
     </div>

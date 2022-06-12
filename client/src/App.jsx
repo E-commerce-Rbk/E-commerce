@@ -29,7 +29,21 @@ const App = () => {
   const [user, setUser] = useState({});
   const [prodDetails, setProdDetails] = useState({});
   const [cart, setCart] = useState({});
+
+  const [itemcounter, setitemcounter] = useState(0);
+
+  const increment = () => {
+    setitemcounter(itemcounter + 1);
+  };
+
+  const deccrement = () => {
+    if (itemcounter > 0) {
+      setitemcounter(itemcounter - 1);
+    }
+  };
+
   const [upProduct, setUpProduct] = useState({});
+
 
   useEffect(() => {
     getProducts().then((res) => setData(res.data));
@@ -80,12 +94,21 @@ const App = () => {
         <Route path="/products" element={<ProductsNavigator />} />
         <Route
           path="/products/beauty"
-          element={<Beauty GetProdDetails={FuncprodDetails} />}
+
+          element={
+            <Beauty
+              GetProdDetails={FuncprodDetails}
+              itemcounter={itemcounter}
+            />
+          }
         />
+
+          
         <Route
           path="/adminview"
           element={<AdminView update={upDate} products={data} func={up} />}
         />
+
         <Route
           path="/products/watchesAndJewlery"
           element={<WatchesAndJewlery GetProdDetails={FuncprodDetails} />}
@@ -94,7 +117,9 @@ const App = () => {
           path="/products/electronic"
           element={<Electronic GetProdDetails={FuncprodDetails} />}
         />
+
         <Route path="/user" element={<User conectedUser={user}></User>} />
+
         <Route
           path="/products/homeAndGarden"
           element={<HomeAndGarden GetProdDetails={FuncprodDetails} />}
@@ -106,7 +131,14 @@ const App = () => {
         <Route path="/userSettings" element={<User></User>} />
         <Route
           path="/cartshop"
-          element={<ShoppingCart cart={cart} user={user}></ShoppingCart>}
+          element={
+            <ShoppingCart
+              cart={cart}
+              user={user}
+              deccrement={deccrement}
+            ></ShoppingCart>
+          }
+
         />
         <Route path="/admin/add" element={<AddProduct></AddProduct>} />
 
@@ -118,6 +150,8 @@ const App = () => {
               prodDetails={prodDetails}
               addToCart={addToCart}
               cart={cart}
+              increment={increment}
+
             ></ProductDetails>
           }
         />
