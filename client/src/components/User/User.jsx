@@ -1,41 +1,56 @@
-// import {
-//     LocationSearching,
-//     MailOutline,
-//     PermIdentity,
-//     PhoneAndroid,
-//   } from "@material-ui/icons";
+
 import "./user.css";
 import Sidebar from "../SideBar/Sidebar.jsx";
-
-export default function User() {
+import React, { useEffect, useState } from "react";
+import { getUser, updateUser } from "../../api/index.js";
+export default function User({ conectedUser }) {
+  const [user, setUser] = useState({});
+  const [edit, setEdit] = useState({});
+  const [up, setUp] = useState(false);
+  useEffect(() => {
+    getUser(conectedUser.id).then((res) => {
+      setUser(res.data);
+      setEdit({
+        userName: res.data.userName,
+        phoneNumber: res.data.phoneNumber,
+        adress: res.data.adress,
+      });
+    });
+  }, [up]);
+  const handleSubmit = () => {
+    updateUser(user._id, edit).then((res) => {
+      setUp(!up);
+    });
+  };
   return (
     <div className="beauty-container">
-      <div className="wrapper">
+     <div className="wrapper">
         <Sidebar></Sidebar>
       </div>
-      <div className="userTitleContainer"></div>
+      <div className="userTitleContainer">
+        
+      </div>
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop"></div>
           <div className="userShowBottom">
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
-              {/* <PermIdentity className="userShowIcon" /> */}
-              <span className="userShowInfoTitle">UserName</span>
+
+              <span className="userShowInfoTitle">{user.userName}</span>
+
             </div>
             <div className="userShowInfo"></div>
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
-              {/* <PhoneAndroid className="userShowIcon" /> */}
-              <span className="userShowInfoTitle">22222222</span>
+
+              <span className="userShowInfoTitle">{user.phoneNumber}</span>
             </div>
             <div className="userShowInfo">
-              {/* <MailOutline className="userShowIcon" /> */}
-              <span className="userShowInfoTitle">mehdiEnnebli@gmail.com</span>
+              <span className="userShowInfoTitle">{user.email}</span>
             </div>
             <div className="userShowInfo">
-              {/* <LocationSearching className="userShowIcon" /> */}
-              <span className="userShowInfoTitle">Tunis | hammem lif</span>
+              <span className="userShowInfoTitle">{user.adress}</span>
             </div>
           </div>
         </div>
@@ -46,6 +61,12 @@ export default function User() {
               <div className="userUpdateItem">
                 <label>Username</label>
                 <input
+
+                  value={edit.userName}
+                  onChange={(e) =>
+                    setEdit({ ...edit, userName: e.target.value })
+                  }
+
                   type="text"
                   placeholder="Username"
                   className="userUpdateInput"
@@ -55,6 +76,11 @@ export default function User() {
               <div className="userUpdateItem">
                 <label>Phone</label>
                 <input
+                  value={edit.phoneNumber}
+                  onChange={(e) =>
+                    setEdit({ ...edit, phoneNumber: e.target.value })
+                  }
+
                   type="text"
                   placeholder="Phone Number"
                   className="userUpdateInput"
@@ -63,15 +89,31 @@ export default function User() {
               <div className="userUpdateItem">
                 <label>Address</label>
                 <input
+
+                  value={edit.adress}
+                  onChange={(e) => setEdit({ ...edit, adress: e.target.value })}
                   type="text"
                   placeholder="Address"
                   className="userUpdateInput"
                 />
+
+                  <br></br>
                 <br></br>
-                <br></br>
-                <button className="btn" style={{marginLeft:"40px"}}>Update</button>
               </div>
             </div>
+            <div className="userUpdateRight">
+              <div className="userUpdateUpload"></div>
+              <button
+                   className="btn" style={{marginLeft:"40px"}}
+                onClick={() => {
+                  handleSubmit();
+                }}
+                className="userUpdateButton"
+              >
+                Update
+              </button>
+            </div>
+
           </form>
         </div>
       </div>

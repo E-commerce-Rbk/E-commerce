@@ -76,4 +76,21 @@ export const signup = async (req, res) => {
         res.status(404).json({ message: error.message })
     }
 }
+export const edit = async (req, res) => {
+    try {
+        let data =await User.findByIdAndUpdate(req.params._id, req.body)
+        console.log(data);
+        res.json({ message: "updated successfully", data })
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+export const getOneUserById = function (req, res) {
+    User.findById(req.params._id)
+      .then((data) => res.json(data))
+      .catch((err) =>
+        res.status(404).json({ message: "user not found", error: err.message })
+      );
+  };
+
 

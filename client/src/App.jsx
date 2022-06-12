@@ -19,6 +19,8 @@ import AdminView from "./components/Admin/AdminView.jsx";
 import AddProduct from "./components/Admin/AddProduct.jsx";
 import SeeOrders from "./components/Admin/SeeOrders.jsx";
 import ProductDetails from "./components/productDetails/ProductDetails.jsx";
+import UpdateProduact from "./components/Admin/UpdateProduct.jsx";
+
 import { useNavigate } from "react-router-dom";
 import { login } from "./api/index.js";
 const App = () => {
@@ -27,6 +29,7 @@ const App = () => {
   const [user, setUser] = useState({});
   const [prodDetails, setProdDetails] = useState({});
   const [cart, setCart] = useState({});
+
   const [itemcounter, setitemcounter] = useState(0);
 
   const increment = () => {
@@ -38,6 +41,9 @@ const App = () => {
       setitemcounter(itemcounter - 1);
     }
   };
+
+  const [upProduct, setUpProduct] = useState({});
+
 
   useEffect(() => {
     getProducts().then((res) => setData(res.data));
@@ -69,11 +75,18 @@ const App = () => {
     });
     setProdDetails(filterd);
   };
+  const up = (p) => {
+    setUpProduct(p);
+  };
   return (
     <BrowserRouter>
       {console.log(cart)}
       <Header user={user} logout={logout}></Header>
       <Routes>
+        <Route
+          path="/updateProduct"
+          element={<UpdateProduact update={upDate} item={upProduct} />}
+        />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login upDate={upDate} />} />
         <Route path="/signup" element={<Signup upDate={upDate} />} />
@@ -81,6 +94,7 @@ const App = () => {
         <Route path="/products" element={<ProductsNavigator />} />
         <Route
           path="/products/beauty"
+
           element={
             <Beauty
               GetProdDetails={FuncprodDetails}
@@ -88,7 +102,13 @@ const App = () => {
             />
           }
         />
-        <Route path="/adminview" element={<AdminView></AdminView>} />
+
+          
+        <Route
+          path="/adminview"
+          element={<AdminView update={upDate} products={data} func={up} />}
+        />
+
         <Route
           path="/products/watchesAndJewlery"
           element={<WatchesAndJewlery GetProdDetails={FuncprodDetails} />}
@@ -97,6 +117,9 @@ const App = () => {
           path="/products/electronic"
           element={<Electronic GetProdDetails={FuncprodDetails} />}
         />
+
+        <Route path="/user" element={<User conectedUser={user}></User>} />
+
         <Route
           path="/products/homeAndGarden"
           element={<HomeAndGarden GetProdDetails={FuncprodDetails} />}
@@ -115,6 +138,7 @@ const App = () => {
               deccrement={deccrement}
             ></ShoppingCart>
           }
+
         />
         <Route path="/admin/add" element={<AddProduct></AddProduct>} />
 
@@ -127,6 +151,7 @@ const App = () => {
               addToCart={addToCart}
               cart={cart}
               increment={increment}
+
             ></ProductDetails>
           }
         />
