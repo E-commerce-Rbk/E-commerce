@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CartElement({elem,up}) {
+function CartElement({elem,up,deccrement}) {
     const handleQantity=(type)=>{
         if (type==="-") {
            elem.quantity-- 
@@ -29,7 +29,7 @@ function CartElement({elem,up}) {
               </td>
               <td class="p-4 px-6 text-center whitespace-nowrap">{elem.product.price}</td>
               <td class="p-4 px-6 text-center whitespace-nowrap">
-                <button class="px-2 py-0 text-red-100 bg-red-600 rounded">
+                <button class="px-2 py-0 text-red-100 bg-red-600 rounded" onClick={deccrement}>
                   x
                 </button>
               </td>

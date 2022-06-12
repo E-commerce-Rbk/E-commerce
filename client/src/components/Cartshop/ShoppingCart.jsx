@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import CartElement from './CartElement/CartElement'
 import {validateCart} from '../../api/index.js'
-function ShoppingCart({cart}) {
+function ShoppingCart({cart,deccrement}) {
     //this gonna be props from the state of main component
     const[test,setTest]=useState(cart)
     const[update,setUpdate]=useState(false)
@@ -32,7 +32,7 @@ function ShoppingCart({cart}) {
                     </thead>
                     <tbody>
                         {test.products.map((e, i) => {
-                            return <CartElement up={up} elem={e} key={i} />
+                            return <CartElement up={up} elem={e} key={i} deccrement={deccrement} />
                         })}
                     </tbody>
                 </table>

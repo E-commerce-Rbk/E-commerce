@@ -42,7 +42,7 @@ const Header = (props) => {
             <Link to="./login">Login</Link>
           </li>}
           {props.user.type &&<li key="5" className="nav-item">
-            <Link onClick={()=>props.logout()} to="./home">logout</Link>
+            <Link onClick={()=>props.logout()} to="./">logout</Link>
           </li>}
         </ul>
         {!props.user.type &&<Button></Button>}

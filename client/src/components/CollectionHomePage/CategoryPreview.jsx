@@ -11,7 +11,7 @@ const CollectionHomePage = () => {
             <div class="group relative">
               <div class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                 <img
-                  src="https://sbsinformatique.com/7758-large_default/ecran-redragon-sapphire-24-1-ms-ips-144-hz.jpg"
+                  src="https://www.swatch.com/dw/image/v2/BDNV_PRD/on/demandware.static/-/Library-Sites-swarp-global/default/dw6454db48/images/Swatch/collections/2022/moonswatch/single-card/single_card_variation_2_Mercury_670x670.jpg"
                   alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
                   class="w-full h-full object-center object-cover"
                 ></img>
@@ -19,11 +19,11 @@ const CollectionHomePage = () => {
               <h3 class="mt-6 text-sm text-gray-500">
                 <a href="#">
                   <span class="absolute inset-0"></span>
-                  Desk and Office
+                  Watches
                 </a>
               </h3>
               <p class="text-base font-semibold text-gray-900">
-                Work from home accessories
+                An Epic collection of watches ad Jewlery
               </p>
             </div>
 
@@ -38,11 +38,11 @@ const CollectionHomePage = () => {
               <h3 class="mt-6 text-sm text-gray-500">
                 <a href="#">
                   <span class="absolute inset-0"></span>
-                  Self-Improvement
+                  Desk
                 </a>
               </h3>
               <p class="text-base font-semibold text-gray-900">
-                Journals and note-taking
+                We afford high quality furniture
               </p>
             </div>
 
@@ -57,11 +57,11 @@ const CollectionHomePage = () => {
               <h3 class="mt-6 text-sm text-gray-500">
                 <a href="#">
                   <span class="absolute inset-0"></span>
-                  Travel
+                  Lawn mower
                 </a>
               </h3>
               <p class="text-base font-semibold text-gray-900">
-                Daily commute essentials
+                Gardening tools
               </p>
             </div>
             <div class="group relative">
@@ -75,11 +75,11 @@ const CollectionHomePage = () => {
               <h3 class="mt-6 text-sm text-gray-500">
                 <a href="#">
                   <span class="absolute inset-0"></span>
-                  Travel
+                  Smart Tv
                 </a>
               </h3>
               <p class="text-base font-semibold text-gray-900">
-                Daily commute essentials
+                Tv And monitors
               </p>
             </div>
             <div class="group relative">
@@ -93,11 +93,11 @@ const CollectionHomePage = () => {
               <h3 class="mt-6 text-sm text-gray-500">
                 <a href="#">
                   <span class="absolute inset-0"></span>
-                  Travel
+                  Office Desk
                 </a>
               </h3>
               <p class="text-base font-semibold text-gray-900">
-                Daily commute essentials
+                Office furniture
               </p>
             </div>
             <div class="group relative">

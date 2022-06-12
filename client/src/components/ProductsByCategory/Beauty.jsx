@@ -4,8 +4,8 @@ import "../NavigateProducts/ProductsNavigator.css";
 import Sidebar from "../SideBar/Sidebar.jsx";
 import { getProducts } from "../../api/index.js";
 import { useNavigate } from "react-router-dom";
-const Beauty = ({GetProdDetails}) => {
-  let navigate= useNavigate()
+const Beauty = ({ GetProdDetails, itemcounter }) => {
+  let navigate = useNavigate();
   const [data, setData] = useState([]);
   useEffect(() => {
     getProducts().then((res) =>
@@ -15,8 +15,9 @@ const Beauty = ({GetProdDetails}) => {
   return (
     <div className="beauty-container">
       <div className="wrapper">
-        <Sidebar></Sidebar>
+        <Sidebar itemcounter={itemcounter}></Sidebar>
       </div>
+
       <div class="bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
@@ -33,20 +34,28 @@ const Beauty = ({GetProdDetails}) => {
               <div class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
                 {console.log(data)}
                 {data.map((element, i) => {
-                  return(
+                  return (
                     <>
-                    <div>
-                    <OneProduct prod={element}  GetProdDetails={GetProdDetails} key={i} />
-                    <button className="btn1" onClick={(e)=>{
-                      GetProdDetails(element._id)
-                       navigate("/productDetails")}} >Buy</button>
-                       <br></br>
-                       </div>
-
+                      <div>
+                        <OneProduct
+                          prod={element}
+                          GetProdDetails={GetProdDetails}
+                          key={i}
+                        />
+                        <button
+                          className="btn1"
+                          onClick={(e) => {
+                            GetProdDetails(element._id);
+                            navigate("/productDetails");
+                          }}
+                        >
+                          Buy
+                        </button>
+                        <br></br>
+                      </div>
                     </>
-                  )
-                })
-                }
+                  );
+                })}
               </div>
             </div>
           </div>

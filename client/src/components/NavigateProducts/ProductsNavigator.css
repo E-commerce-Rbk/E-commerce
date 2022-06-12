@@ -5,7 +5,7 @@
 .beauty-container {
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: space-between;
 }
 /* .products-container {
   margin-top: -4rem;
@@ -18,18 +18,16 @@
   border: 2px #121212 solid;
   background-color: #161313;
   width: 12rem;
-  height: 120rem;
+  height: 300rem;
 }
 .third-verticale {
-  
-
   /* display: flex; */
   /* justify-content:flex-start; */
-  
+
   /* flex-direction: column; */
   width: auto;
   height: auto;
-  border: #f36060 2px solid;
+  border: #ffffff 2px solid;
 }
 
 .categ-title {
@@ -52,8 +50,6 @@
   transition: transform 200ms ease-in;
   height: 30rem;
 }
-
-
 
 .aa {
   margin-top: 100px;

@@ -1,5 +1,7 @@
 import React from "react";
 import SideBar from "../SideBar/Sidebar.jsx";
+import { Link } from "react-router-dom";
+
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +27,6 @@ class ProductDetails extends React.Component {
     console.log(this.props.prodDetails[0]);
     return (
       <div className="beauty-container">
-
         <SideBar />
 
         <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
@@ -118,65 +119,31 @@ class ProductDetails extends React.Component {
                 {this.props.prodDetails[0].description}.
               </p>
               <p className=" font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">
-                TN {this.props.prodDetails[0].price} Dt
+                Price : {this.props.prodDetails[0].price} TND
               </p>
-
-              <div className="lg:mt-11 mt-10">
-                <div className="flex flex-row justify-between">
-                  <p className=" font-medium text-base leading-4 text-gray-600">
-                    Select quantity
-                  </p>
-                  <div className="flex">
-                    <span
-                      onClick={this.minusCount}
-                      className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border border-gray-300 border-r-0 w-7 h-7 flex items-center justify-center pb-1"
-                    >
-                      -
-                    </span>
-                    <input
-                      id="counter"
-                      aria-label="input"
-                      className="border border-gray-300 h-full text-center w-14 pb-1"
-                      type="text"
-                      value={this.state.counter}
-                      onChange={(e) => e.target.value}
-                    />
-                    <span
-                      onClick={this.addCount}
-                      className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border border-gray-300 border-l-0 w-7 h-7 flex items-center justify-center pb-1 "
-                    >
-                      +
-                    </span>
-                  </div>
-                </div>
-                <hr className=" bg-gray-200 w-full my-2" />
-
-                <hr className=" bg-gray-200 w-full mt-4" />
-              </div>
-              <br />
-              <br />
-              <button className="focus:outline-none focus:ring-2 hover:bg-red focus:ring-offset-2 focus:ring-white-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-6 lg:mt-12 mt-6">
-                Add to shopping bag
-              </button>
             </div>
 
-            <br/>
-        <br/>
-            <button onClick={()=>{this.props.addToCart({product:this.props.prodDetails[0],quantity:2})}} className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">Add to shopping cart</button>
-        </div>
-       
-        {/* <!-- Preview Images Div For larger Screen--> */}
-
-        
-    </div>
-    <div className="flex  justify-center items-center w-full">
-        <div className="w-full sm:w-96 md:w-8/12 lg:w-full grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-28 sm:gap-x-6 sm:gap-y-12 gap-y-12 sm:mt-14 mt-10">
-
-
-            {/* <!-- Preview Images Div For larger Screen--> */}
+            <br />
+            <br />
           </div>
-          <div className="flex  justify-center items-center w-full">
-            <div className="w-full sm:w-96 md:w-8/12 lg:w-full grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-28 sm:gap-x-6 sm:gap-y-12 gap-y-12 sm:mt-14 mt-10"></div>
+
+          {/* <!-- Preview Images Div For larger Screen--> */}
+
+          <div className="flex  justify-center items-center ">
+            <Link to={-1}>
+              <button
+                onClick={() => {
+                  this.props.addToCart({
+                    product: this.props.prodDetails[0],
+                    quantity: 1,
+                  });
+                  this.props.increment();
+                }}
+                className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-1200 py-5 lg:mt-18 mt-6"
+              >
+                Add To cart
+              </button>
+            </Link>
           </div>
         </div>
       </div>
