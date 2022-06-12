@@ -1,4 +1,6 @@
 import React from "react";
+
+import Header from "../Nav-Bar/Header.jsx";
 import { Form } from "react-bootstrap"
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import "./Signup.css"
@@ -13,6 +15,7 @@ class Signup extends React.Component {
       password: "",
       adress: "",
       phoneNumber: 0,
+
       userName:""
 
     }
@@ -24,12 +27,14 @@ class Signup extends React.Component {
   }
   render() {
    
+
     return (
       <div class="cont">
         <div class="form sign-in">
           <h2>Sign Up</h2>
           <label>
             <span>Email Address</span>
+
             <Form.Control type="email" name="email" placeholder="name@example.com" onChange={(e) => { this.setState({ email: e.target.value }) }} />
           </label>
           <label>
@@ -60,6 +65,7 @@ class Signup extends React.Component {
             })
           }} className="BUTTON" type="button">Sign Up</button>
 
+
         </div>
 
         <div class="sub-cont">
@@ -74,9 +80,6 @@ class Signup extends React.Component {
         </div>
 
       </div>
-
-
-
 
     );
   }

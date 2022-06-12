@@ -70,7 +70,7 @@ input{
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 button{
-  background: linear-gradient(to right, #14163c 0%, #03217b 79%);
+  background: linear-gradient(to right, #cd0d0d 0%, #7b0303 79%);
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   width: 65%;

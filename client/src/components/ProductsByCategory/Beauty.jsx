@@ -37,11 +37,12 @@ const Beauty = ({GetProdDetails}) => {
                     <>
                     <div>
                     <OneProduct prod={element}  GetProdDetails={GetProdDetails} key={i} />
-                    <button className="btn" onClick={(e)=>{
+                    <button className="btn1" onClick={(e)=>{
                       GetProdDetails(element._id)
                        navigate("/productDetails")}} >Buy</button>
                        <br></br>
                        </div>
+
                     </>
                   )
                 })
