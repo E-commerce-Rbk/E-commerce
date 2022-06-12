@@ -25,6 +25,7 @@ class ProductDetails extends React.Component {
     console.log(this.props.prodDetails[0]);
     return (
       <div className="beauty-container">
+
         <SideBar />
 
         <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
@@ -158,6 +159,19 @@ class ProductDetails extends React.Component {
                 Add to shopping bag
               </button>
             </div>
+
+            <br/>
+        <br/>
+            <button onClick={()=>{this.props.addToCart({product:this.props.prodDetails[0],quantity:2})}} className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">Add to shopping cart</button>
+        </div>
+       
+        {/* <!-- Preview Images Div For larger Screen--> */}
+
+        
+    </div>
+    <div className="flex  justify-center items-center w-full">
+        <div className="w-full sm:w-96 md:w-8/12 lg:w-full grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-28 sm:gap-x-6 sm:gap-y-12 gap-y-12 sm:mt-14 mt-10">
+
 
             {/* <!-- Preview Images Div For larger Screen--> */}
           </div>

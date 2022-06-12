@@ -2,17 +2,26 @@ import React from "react";
 import Header from "../Nav-Bar/Header.jsx";
 import {Form}  from "react-bootstrap"
 import "./Login.css"
+import {login} from "../../api/index.js"
+import { Link } from "react-router-dom";
 class Login extends React.Component {
   constructor(props){
     super(props)
     this.state={
       email:"",
-      password:""
+      password:"",
     }
   }
+  handleLogin(user){
+    login(user)
+    .then((res)=>{
+    localStorage.setItem("loged",JSON.stringify(res.data))
+    this.props.upDate()
+    })
+    .catch((err)=>alert(err.response.data))
+  }
   render() {
-    console.log(this.state.email)
-    console.log(this.state.password)
+   console.log(this.state);
     return (
         <div class="cont">
         <div class="form sign-in">
@@ -27,8 +36,9 @@ class Login extends React.Component {
             <Form.Control type="password" name="password" onChange={(e)=>{this.setState({password:e.target.value})}}/>
           
           </label>
-         
-          <button class="submit" type="button">Sign In</button>
+          <Link to="/">
+          <button onClick={()=>this.handleLogin({email:this.state.email,password:this.state.password})} class="submit" type="button">Sign In</button>
+          </Link>
           <p class="forgot-pass">Forgot Password ?</p>
         </div>
     

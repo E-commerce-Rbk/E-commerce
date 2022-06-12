@@ -16,7 +16,7 @@ export default function Slider() {
   const slideRef = useRef();
 
   const removeAnimation = () => {
-    slideRef.current.classList.remove("fade-anim");
+    // slideRef.current.classList.remove("fade-anim");
   };
 
   useEffect(() => {
@@ -44,13 +44,13 @@ export default function Slider() {
   const handleOnNextClick = () => {
     count = (count + 1) % featuredProducts.length;
     setCurrentIndex(count);
-    slideRef.current.classList.add("fade-anim");
+    // slideRef.current.classList.add("fade-anim");
   };
   const handleOnPrevClick = () => {
     const productsLength = featuredProducts.length;
     count = (currentIndex + productsLength - 1) % productsLength;
     setCurrentIndex(count);
-    slideRef.current.classList.add("fade-anim");
+    // slideRef.current.classList.add("fade-anim");
   };
 
   return (
