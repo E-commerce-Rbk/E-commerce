@@ -38,7 +38,7 @@ const JewleryAndWatches = () => {
                       <button
                         className="btn"
                         onClick={() => {
-                          navigate("/products/beauty");
+                          navigate("/products/WatchesAndJewlery");
                         }}
                       >
                         Shop now

@@ -54,10 +54,11 @@ const App = () => {
         <Route path="/adminview" element={<AdminView></AdminView>} />
         <Route
           path="/products/watchesAndJewlery"
-          element={<WatchesAndJewlery />}
+          element={<WatchesAndJewlery  GetProdDetails={FuncprodDetails}/>}
         />
-        <Route path="/products/electronic" element={<Electronic />} />
-        <Route path="/products/homeAndGarden" element={<HomeAndGarden />} />
+        <Route path="/products/electronic" element={<Electronic GetProdDetails={FuncprodDetails} />} />
+        <Route path="/products/homeAndGarden" element={<HomeAndGarden GetProdDetails={FuncprodDetails} />} />
+        <Route path="/products/WatchesAndJewlery" element={<WatchesAndJewlery GetProdDetails={FuncprodDetails} />} />
         <Route path="/userSettings" element={<User></User>} />
         <Route path="/cartshop" element={<ShoppingCart></ShoppingCart>} />
         <Route path="/admin/add" element={<AddProduct></AddProduct>} />
