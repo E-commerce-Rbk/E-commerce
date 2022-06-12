@@ -22,7 +22,7 @@ class ProductDetails extends React.Component {
     }}
 
  render(){
-console.log(this.props.prodDetails[0])
+ console.log(this.props.cart)
    return(
     <div className="Wrapper">
         <SideBar />
@@ -98,7 +98,7 @@ console.log(this.props.prodDetails[0])
             </div>
             <br/>
         <br/>
-            <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">Add to shopping bag</button>
+            <button onClick={()=>{this.props.addToCart({product:this.props.prodDetails[0],quantity:2})}} className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">Add to shopping cart</button>
         </div>
        
         {/* <!-- Preview Images Div For larger Screen--> */}

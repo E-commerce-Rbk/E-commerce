@@ -15,6 +15,7 @@ const Header = (props) => {
 
   return (
     <div>
+      {console.log(props.logout)}
       <nav className="navbar">
         <Link to="/" className="navbar-logo ">
           Shopify
@@ -32,16 +33,19 @@ const Header = (props) => {
           <li key="3" className="nav-item">
             <Link to="./products">Shop</Link>
           </li>
-          {props.adminState && (
+          {props.user.type==="admin" && (
             <li key="4" className="nav-item">
               <Link to="./adminview">Admin</Link>
             </li>
           )}
-          <li key="5" className="nav-item">
+          {!props.user.type &&<li key="5" className="nav-item">
             <Link to="./login">Login</Link>
-          </li>
+          </li>}
+          {props.user.type &&<li key="5" className="nav-item">
+            <Link onClick={()=>props.logout()} to="./home">logout</Link>
+          </li>}
         </ul>
-        <Button></Button>
+        {!props.user.type &&<Button></Button>}
       </nav>
     </div>
   );

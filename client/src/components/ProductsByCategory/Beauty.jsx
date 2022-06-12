@@ -3,25 +3,20 @@ import OneProduct from "./OneProduct/OneProduct.jsx";
 import "../NavigateProducts/ProductsNavigator.css";
 import Sidebar from "../SideBar/Sidebar.jsx";
 import { getProducts } from "../../api/index.js";
-
 import { useNavigate } from "react-router-dom";
-
 const Beauty = ({GetProdDetails}) => {
   let navigate= useNavigate()
-
   const [data, setData] = useState([]);
   useEffect(() => {
     getProducts().then((res) =>
       setData(res.data.filter((e) => e.category === "Beauty Product"))
     );
   }, [false]);
-
   return (
     <div className="beauty-container">
       <div className="wrapper">
         <Sidebar></Sidebar>
       </div>
-
       <div class="bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
@@ -40,18 +35,18 @@ const Beauty = ({GetProdDetails}) => {
                 {data.map((element, i) => {
                   return(
                     <>
+                    <div>
                     <OneProduct prod={element}  GetProdDetails={GetProdDetails} key={i} />
                     <button className="btn" onClick={(e)=>{
                       GetProdDetails(element._id)
                        navigate("/productDetails")}} >Buy</button>
+                       <br></br>
+                       </div>
                     </>
-                    
-                  ) 
+                  )
                 })
-                
                 }
               </div>
-              
             </div>
           </div>
         </div>
@@ -75,5 +70,4 @@ const Beauty = ({GetProdDetails}) => {
     </div>
   );
 };
-
 export default Beauty;

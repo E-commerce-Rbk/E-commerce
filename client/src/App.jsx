@@ -20,20 +20,37 @@ import AddProduct from "./components/Admin/AddProduct.jsx";
 import SeeOrders from "./components/Admin/SeeOrders.jsx";
 import ProductDetails from "./components/productDetails/ProductDetails.jsx";
 import { useNavigate } from "react-router-dom";
-
+import {login} from "./api/index.js"
 const App = () => {
   const [data, setData] = useState([]);
   const [update, setUpdate] = useState(false);
-  const [adminState, setAdminState] = useState(true);
-  const [userState, setUserState] = useState(false);
+  const [user, setUser] = useState({});
   const [prodDetails, setProdDetails] = useState({});
+  const [cart,setCart]=useState({})
 
   useEffect(() => {
     getProducts().then((res) => setData(res.data));
+    let check=JSON.parse(localStorage.getItem("loged"))
+    if(check){
+      login({token:check.token}).then((res)=>{
+        console.log(res);
+        if(res.data){
+          setUser(res.data)
+          setCart({userId:res.data.id,products:[]})
+        }
+      })
+    }
   }, [update]);
   const upDate = () => {
     setUpdate(!update);
   };
+  const logout=()=>{
+    localStorage.clear()
+    setUser({})    
+  }
+  const addToCart=(obj)=>{
+    setCart({userId:cart.userId,products:[...cart.products, obj]})
+  }
   // const navigate= useNavigate()
   const FuncprodDetails = (target) => {
     let filterd = data.filter((e, i) => {
@@ -43,15 +60,16 @@ const App = () => {
   };
   return (
     <BrowserRouter>
-      <Header adminState={adminState} userState={userState}></Header>
+    {console.log(cart)}
+      <Header user={user} logout={logout}></Header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login upDate={upDate}/>} />
+        <Route path="/signup" element={<Signup upDate={upDate}/>} />
         <Route path="/aboutus" element={<About />} />
         <Route path="/products" element={<ProductsNavigator />} />
         <Route path="/products/beauty" element={<Beauty GetProdDetails={FuncprodDetails}/>} />
-        <Route path="/adminview" element={<AdminView></AdminView>} />
+        <Route path="/adminview" element={<AdminView ></AdminView>} />
         <Route
           path="/products/watchesAndJewlery"
           element={<WatchesAndJewlery />}
@@ -59,11 +77,11 @@ const App = () => {
         <Route path="/products/electronic" element={<Electronic />} />
         <Route path="/products/homeAndGarden" element={<HomeAndGarden />} />
         <Route path="/userSettings" element={<User></User>} />
-        <Route path="/cartshop" element={<ShoppingCart></ShoppingCart>} />
-        <Route path="/admin/add" element={<AddProduct></AddProduct>} />
+        <Route path="/cartshop" element={<ShoppingCart cart={cart} user={user}></ShoppingCart>} />
+        <Route path="/admin/add" element={<AddProduct ></AddProduct>} />
 
-        <Route path="admin/orders" element={<SeeOrders></SeeOrders>} />
-        <Route path="/productDetails" element={<ProductDetails prodDetails={prodDetails}></ProductDetails>}  />
+        <Route path="admin/orders" element={<SeeOrders ></SeeOrders>} />
+        <Route path="/productDetails" element={<ProductDetails prodDetails={prodDetails} addToCart={addToCart} cart={cart}></ProductDetails>}  />
       </Routes>
     </BrowserRouter>
   );
