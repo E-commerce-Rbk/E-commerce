@@ -49,3 +49,10 @@ export const findProduct = function (req, res) {
         .json({ message: "products not found", error: err.message });
     });
 };
+export const getOneProdById = function (req, res) {
+  Product.findById(req.params._id)
+     .then((data) => res.json({ message: "Prod existing", data }))
+     .catch((err) =>
+       res.status(404).json({ message: "prod not found", error: err.message })
+     );
+ }

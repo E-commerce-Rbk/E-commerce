@@ -23,7 +23,7 @@ export const getUserCart = function (req, res) {
 };
 //delete cart
 export const deleteCart = function (req, res) {
-  Cart.findByIdAndDelete(req, params._id)
+  Cart.findByIdAndDelete(req.params._id)
     .then((data) => res.json({ message: "deleted successfully", data }))
     .catch((err) =>
       res.status(404).json({ message: "cart not found", error: err.message })

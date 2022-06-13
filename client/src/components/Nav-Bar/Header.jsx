@@ -12,7 +12,7 @@ const Header = (props) => {
       {console.log(props.logout)}
       <nav className="navbar">
         <Link to="/" className="navbar-logo ">
-          Shopify
+        Shopium
           <Icons.FaShoppingBag />
         </Link>
         <ul className="nav-items">

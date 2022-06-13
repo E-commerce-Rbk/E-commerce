@@ -31,7 +31,7 @@ class Signup extends React.Component {
     return (
       <div class="cont">
         <div class="form sign-in">
-          <h2>Sign Up</h2>
+          
           <label>
             <span>Email Address</span>
 
