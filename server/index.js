@@ -21,6 +21,9 @@ const PORT=process.env.PORT || 5000;
 app.use('/product',productRoutes)
 app.use("/cart", cartRoutes);
 app.use('/user',userRoutes)
+app.get("/",(req,res)=>{
+    res.send("app running")
+})
 mongoose.connect(CONNECTION_URL,{useNewUrlParser:true,useUnifiedTopology:true})
 .then(()=>app.listen(PORT,()=>console.log(`Server runing on port:${PORT}`)))
 .catch((err)=>console.log(err.message))
